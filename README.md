@@ -51,7 +51,15 @@ npm run build
 
 ### Endpoint
 
-GET [/results](http://localhost:${port}/api/v1/race/results)
+http://localhost:${port}/api/v1/
+
+###
+
+GET [race/results]
+
+### Ví dụ:
+
+http://localhost:3000/api/v1/race/results
 
 ### Parameters
 
@@ -101,7 +109,7 @@ Nếu không cung cấp bất kỳ query parameter nào, API sẽ trả về to�
 
 Request
 
-GET /results?year=2022
+GET race/results?year=2022
 
 Response
 
