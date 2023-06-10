@@ -1,0 +1,20 @@
+//
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model race_results {
+  id              Int              @id @default(autoincrement())  @db.Int
+  date            DateTime         @db.Date()
+  driver          String?          @db.VarChar(250)
+  team            String?          @db.VarChar(250)
+  grandPrix       String?          @db.VarChar(250)
+  laps            String?          @db.VarChar(100)
+  time            String           @db.VarChar(100)
+}
+
