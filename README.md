@@ -3,6 +3,7 @@
 Dự án của bạn nhằm mục đích tạo ra một REST API cho phép hiển thị nội dung kết quả đua xe F1, được lấy từ trang web chính thức của F1, https://www.formula1.com/. Crawling dữ liệu từ trang RACE RESULTS của tất cả các năm, và lưu trữ thông tin đó vào cơ sở dữ liệu MySQL. Sau đó, tạo một REST API bằng Node.js và MySQL cho phép tìm kiếm các thông tin liên quan đến năm, tay lái, đội tham gia, cuộc đua, v.v.
 Dự án sử dụng Node Js với framework Express, Mysql, lib Prisma là một Object Relational Mapping (ORMs) giúp giao tiếp với db một cách dễ dàng hơn.
 Môi trường Node js (v16.14.2).
+Sử dụng thử viện cheerio để Crawling data và lưu vào mysql. Folder: prisma/seed/seed.ts
 
 ## Cài đặt
 
