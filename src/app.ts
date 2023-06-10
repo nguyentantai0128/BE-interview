@@ -1,5 +1,4 @@
 import express, { Response } from 'express';
-// import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
 import responseTime from 'response-time';
@@ -9,8 +8,6 @@ import { notfound } from './utils/apiErrorInput';
 const app = express();
 
 app.use(responseTime());
-// set security HTTP headers
-// app.use(helmet());
 
 // parse json request body
 app.use(express.json());
@@ -26,10 +23,6 @@ app.use(express.static('public'));
 // enable cors
 app.use(cors());
 app.options('*', cors());
-
-// jwt authentication
-// app.use(passport.initialize());
-// passport.use('jwt', jwtStrategy);
 
 // v1 api routes
 app.use('/api/v1', routes);
