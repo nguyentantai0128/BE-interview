@@ -2,8 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
 const cheerio = require('cheerio');
 import db from './../../src/config/database';
-import { data } from 'cheerio/lib/api/attributes';
-import moment from 'moment';
 
 // SEED VALUE
 const prisma = new PrismaClient();

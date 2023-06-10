@@ -1,11 +1,8 @@
 import express from 'express';
 import raceController from './race.controller';
-import { ROUTE_CONSTANT } from './race.contants';
-// import validateRequest from '@src/middleware/validateSchema';
-// import validation from './auth.validation';
-// import authMiddleWare from '@middleware/auth';
+import { ROUTE_CONSTANT } from './constants';
 
 const router = express.Router();
-router.get(ROUTE_CONSTANT.LOGIN, raceController.login);
+router.get(ROUTE_CONSTANT.RESULT, raceController.findALl);
 
 export default router;

@@ -6,7 +6,7 @@ const routerApi = express.Router();
 
 const defaultRoutes = [
   {
-    path: ROUTE_GROUP.AUTH,
+    path: ROUTE_GROUP.RACE,
     route: raceRouter,
   },
 ];

@@ -1,36 +1,33 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import httpStatus from 'http-status';
 //
-import { IRequestData } from '@src/utils/types';
 import {
   makeErrorResponse,
   makeSuccessResponse,
 } from '@src/utils/response';
 
-import configEnv from '@src/config/env';
+import raceService from './race.service';
+import { IRawPaging, IRequestList } from './dto/race.input';
+import message from '@src/message';
 
-const login = async (req: Request, res: Response) => {
+const findALl = async (req: IRequestList, res: Response) => {
   try {
-    const data = {};
-    // if (helper.isEmpty(data)) {
-    //   return makeErrorResponse(res, httpStatus.OK, {
-    //     code: httpStatus.BAD_REQUEST,
-    //     message: message.AUTH.ERROR_LOGIN.MESSAGE,
-    //     error: {
-    //       code: message.AUTH.ERROR_LOGIN.KEY,
-    //       message: message.AUTH.ERROR_LOGIN.MESSAGE,
-    //     },
-    //   });
-    // }
-    // const tokens = await authService.generateAuthTokens(data);
-    // return makeSuccessResponse(res, httpStatus.OK, {
-    //   code: httpStatus.OK,
-    //   message: message.AUTH.LOGIN_SUCCESS,
-    //   data: {
-    //     user: data,
-    //     tokens,
-    //   },
-    // });
+    const { year, driver, team, grandPrix, time } = req.query;
+
+    const params = {
+      year,
+      driver,
+      team,
+      grandPrix,
+      time,
+    } as IRawPaging;
+
+    const data = await raceService.listAllRace(params);
+    return makeSuccessResponse(res, httpStatus.OK, {
+      code: httpStatus.OK,
+      message: message.SUCCESS,
+      data,
+    });
   } catch (err) {
     return makeErrorResponse(res, httpStatus.BAD_REQUEST, {
       code: httpStatus.BAD_REQUEST,
@@ -41,6 +38,6 @@ const login = async (req: Request, res: Response) => {
 };
 
 const raceController = {
-  login,
+  findALl,
 };
 export default raceController;
