@@ -14,8 +14,7 @@ git clone https://github.com/nguyentantai0128/BE-interview.git
 
 2. Cài đặt các dependencies:
 
-cd BE-interview
-npm install
+cd BE-interview && npm install
 
 3. Migration database
    \_ Tạo db trong mysql: CREATE DATABASE mydb
